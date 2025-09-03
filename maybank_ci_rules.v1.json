@@ -1,42 +1,22 @@
 {
-  "version": "v1",
   "rules": {
     "Logo": [
       {
-        "id": "LOGO.TEMPLATE_MATCH",
-        "title": "Correct Maybank logo must be used",
-        "pdf_ref": "Section 2.1, p.10",
-        "severity": "critical",
-        "detector": "logo_template_match",
-        "params": {
-          "template_file": "maybank_logo_master.png",
-          "min_confidence": 0.9
-        }
+        "id": "logo_template_match",
+        "description": "Must match master logo template",
+        "expected": "Maybank official master logo"
       },
       {
-        "id": "LOGO.CLEARSPACE",
-        "title": "Maintain clear space around logo (≥25% height)",
-        "pdf_ref": "Section 2.1, p.12",
-        "severity": "critical",
-        "detector": "logo_clearspace",
-        "params": {
-          "min_ratio": 0.25
-        }
+        "id": "logo_clearspace",
+        "description": "Maintain minimum clearspace around the logo",
+        "expected": "Clearspace ≥ 20px on all sides"
       }
     ],
     "Colours": [
       {
-        "id": "COLOUR.PALETTE",
-        "title": "Must use approved Maybank palette",
-        "pdf_ref": "Section 3.1, p.20",
-        "severity": "major",
-        "detector": "palette_deltaE",
-        "params": {
-          "allowed_colours": [
-            { "name": "Maybank Yellow", "hex": "#FFC600", "tolerance_deltaE": 5 },
-            { "name": "HD Black", "hex": "#000000", "tolerance_deltaE": 5 }
-          ]
-        }
+        "id": "palette_deltaE",
+        "description": "Colours must match Maybank official palette",
+        "expected": "DeltaE < 2.0 against brand palette (Pantone 7548C, RGB 255/198/0, HD Black)"
       }
     ]
   }
